@@ -1,3 +1,5 @@
 import technosList from "./modules/technos-list.js";
 submit.addEventListener("click", ()=>technosList.addTechno())
-// window.onload=technosList.addTechno()
+
+technosList.listTechnos(technosList.technos)
+

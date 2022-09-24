@@ -1,6 +1,7 @@
 import Techno from "./techno.js";
 
-let technos = []
+// let technos = []
+let technos = JSON.parse(localStorage.getItem('technosVsES6')) || [];
 
 function listTechnos(technos) {
    for (let tech in technos) {
@@ -28,8 +29,16 @@ function addTechno() {
    console.log("envoyé");
    technos = [...technos, techno]
    // console.log("après ajout", technos)
-   listTechnos(technos)
+   save(technos)
+   // listTechnos(technos)
    form.reset();
+}
+
+
+function save(technos) {
+   localStorage.setItem('technosVsES6', JSON.stringify(technos));
+   // j'aime pas mais pas trouvé mieux... pour actualiser l'affichage  
+   document.location.reload()
 }
 
 const technosList = { technos, addTechno, listTechnos }
