@@ -37,7 +37,7 @@ function addTechno() {
 
 function save(technos) {
    localStorage.setItem('technosVsES6', JSON.stringify(technos));
-   // j'aime pas mais pas trouvé mieux... pour actualiser l'affichage  
+   // j'aime pas mais pas trouvé mieux... pour actualiser  
    document.location.reload()
 }
 
