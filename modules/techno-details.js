@@ -3,6 +3,7 @@ import technosList from "./technos-list.js";
 
 
 // on décode le paramètre passé dans l'url
+// exemple pour test : http://127.0.0.1:5500/techno-details.html?id=0.6516139754826353
 export var parameterValue = decodeURIComponent(window.location.search.match(/(\?|&)id\=([^&]*)/)[2]);
 alert(parameterValue);
 // on filtre le tableau des technos pour obtenir la tech correspondant à l'id passé en paramètre
