@@ -14,12 +14,16 @@ function listTechnos(technos) {
       techName.textContent = technos[tech].technoname
       const techCategory = document.createElement("h3")
       techCategory.textContent = technos[tech].category
-      const techDetails = document.createElement("p")
-      techDetails.textContent = technos[tech].details
+      const techLink = document.createElement("a")
+      techLink.textContent = "vue des détails"
+      techLink.setAttribute("href", "/techno-details.html");
+      techLink.href+=`?id=${technos[tech].id}`
+      // const techDetails = document.createElement("p")
+      // techDetails.textContent = technos[tech].details
       document.body.appendChild(techContainer)
       techContainer.appendChild(techName)
       techContainer.appendChild(techCategory)
-      techContainer.appendChild(techDetails)
+      techContainer.appendChild(techLink)
    }
 }
 

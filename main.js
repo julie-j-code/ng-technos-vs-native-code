@@ -1,9 +1,19 @@
-import { parameterValue, result, renderTechno } from "./modules/techno-details.js";
+
+import {renderTechno, result, parameterValue  } from "./modules/techno-details.js";
 import technosList from "./modules/technos-list.js";
 
-parameterValue?console.log(parameterValue) & renderTechno():technosList.listTechnos(technosList.technos)
+console.log(window.location.pathname);
+
+if (parameterValue) {
+    renderTechno()
+}else if(window.location.pathname=="/technos-list.html"){
+    technosList.listTechnos(technosList.technos)
+}
 
 document.querySelector("#button")?submit.addEventListener("click", ()=>technosList.addTechno()):""
+
+
+
 
 
 
