@@ -36,6 +36,8 @@ function addTechno() {
    save(technos)
    // listTechnos(technos)
    form.reset();
+   // redirige vers la liste actualisée
+   location.href = './technos-list.html';
 }
 
 
