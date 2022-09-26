@@ -1,6 +1,6 @@
-import Techno from "./techno.js";
+// n'est plus nécessaire ici si c'est add-techno qui gère la création
+// import Techno from "./techno.js";
 
-// let technos = []
 let technos = JSON.parse(localStorage.getItem('technosVsES6')) || [];
 
 function listTechnos(technos) {
@@ -18,8 +18,6 @@ function listTechnos(technos) {
       techLink.textContent = "vue des détails"
       techLink.setAttribute("href", "/techno-details.html");
       techLink.href+=`?id=${technos[tech].id}`
-      // const techDetails = document.createElement("p")
-      // techDetails.textContent = technos[tech].details
       document.body.appendChild(techContainer)
       techContainer.appendChild(techName)
       techContainer.appendChild(techCategory)
@@ -27,26 +25,21 @@ function listTechnos(technos) {
    }
 }
 
-function addTechno() {
-   // console.log("avant ajout", technos)
-   let techno = new Techno(technoname.value, details.value, category.value)
-   console.log("envoyé");
-   technos = [...technos, techno]
-   // console.log("après ajout", technos)
-   save(technos)
-   // listTechnos(technos)
-   form.reset();
-   // redirige vers la liste actualisée
-   location.href = './technos-list.html';
-}
+// on délègue à add-techno - pas très chaude...
+// function addTechno() {
+//    let techno = new Techno(technoname.value, details.value, category.value)
+//    console.log("envoyé");
+//    technos = [...technos, techno]
+//    save(technos)
+//    form.reset();
+//    location.href = './technos-list.html';
+// }
 
+// function save(technos) {
+//    localStorage.setItem('technosVsES6', JSON.stringify(technos));
+//    document.location.reload()
+// }
 
-function save(technos) {
-   localStorage.setItem('technosVsES6', JSON.stringify(technos));
-   // j'aime pas mais pas trouvé mieux... pour actualiser  
-   document.location.reload()
-}
-
-const technosList = { technos, addTechno, listTechnos }
+const technosList = { technos,listTechnos }
 
 export default technosList
