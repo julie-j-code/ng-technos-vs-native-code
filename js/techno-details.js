@@ -1,18 +1,11 @@
-
 import technosList from "./technos-list.js";
 
 
-
-// on décode le paramètre passé dans l'url
-export const parameterValue = new URL(location.href).searchParams.get("id")
-export const result = technosList.technos.filter(
-    (tech) => tech.id == parameterValue)
-
-
-
-
-export const renderTechno = () => {
-
+const renderDetails = () => {
+    // on décode le paramètre passé dans l'url
+    const parameterValue = new URL(location.href).searchParams.get("id")
+    const result = technosList.technos.filter(
+        (tech) => tech.id == parameterValue)
     const techContainer = document.createElement("div")
     techContainer.classList.add("container")
     techContainer.classList.add("mx-auto")
@@ -27,5 +20,12 @@ export const renderTechno = () => {
     techContainer.appendChild(techName)
     techContainer.appendChild(techCategory)
     techContainer.appendChild(techDetails)
-
+    document.getElementById("techno-details").appendChild(techContainer
+    )
 }
+
+
+
+const technoDetails = { renderDetails }
+
+export default technoDetails
