@@ -1,9 +1,11 @@
 
 // import deleteTechno from "./delete-techno.js";
+import { Service } from "./service.js";
 import technosList from "./technos-list.js";
 
 let parameterValue
 let result
+let sr=new Service()
 
 const renderDetails = () => {
     // on décode le paramètre passé dans l'url
@@ -31,20 +33,12 @@ const renderDetails = () => {
     techButton.textContent = "supprimer"
     techButton.setAttribute("id", "techButton")
     techContainer.appendChild(techButton)
-
+            // pour le buton de suppression
+            document.querySelector("#techButton").addEventListener("click", ()=>sr.removeTechno(result))
 }
 
-// removeTechno addTechno et save sont regroupées dans un sesvice injecté dans les différents components vs angular. faudrait donc, à défaut de créer l'équivalent regrouper ces fonctions dans un service.js. mais je m'en tiens à ça qui me permet de revoir comment mettre à jour le tableau d'objets et sauvegarder la mise à jour dans localStorage
 
-const removeTechno = () => {
-    let clearedTechnos = technosList.technos.filter(t => t != result[0])
-    save(clearedTechnos)
-}
-
-const save = (clearedTechnos) => {
-    localStorage.setItem('technosVsES6', JSON.stringify(clearedTechnos));
-}
-
-const technoDetails = { renderDetails, removeTechno }
+const technoDetails = { renderDetails, result
+ }
 
 export default technoDetails

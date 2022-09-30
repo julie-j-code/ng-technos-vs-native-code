@@ -1,4 +1,8 @@
-let technos = JSON.parse(localStorage.getItem('technosVsES6')) || [];
+import { Service } from "./service.js"
+
+let sr=new Service()
+
+let technos = sr.getTechnos()
 
 function listTechnos(technos) {
    for (let tech in technos) {
@@ -15,9 +19,7 @@ function listTechnos(technos) {
       techCategory.textContent = technos[tech].category
       const techLink = document.createElement("a")
       techLink.textContent = "vue des détails"
-      // techLink.setAttribute("href", "/techno-details.html");
-      // techLink.href+=`?id=${technos[tech].id}`
-      techLink.setAttribute("href", "/techno-details");
+      techLink.setAttribute("href", "/techno-details")
       techLink.href += `?id=${technos[tech].id}`
       techLink.setAttribute("onclick", "route()")
       document.body.appendChild(techContainer)
