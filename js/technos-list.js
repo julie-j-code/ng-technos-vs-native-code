@@ -1,7 +1,6 @@
-import { Service } from "./service.js"
+import { Service } from "./Service.js"
 
 let sr=new Service()
-
 let technos = sr.getTechnos()
 
 function listTechnos(technos) {

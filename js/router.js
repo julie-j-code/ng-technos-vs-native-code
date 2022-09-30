@@ -1,10 +1,6 @@
 import technosList from "./technos-list.js";
 import technoAdd from "./add-techno.js";
 import technoDetails from "./techno-details.js";
-import { Service } from "./service.js";
-
-let sr=new Service()
-
 
 const route = (event) => {
     event = event || window.event;

@@ -1,7 +1,7 @@
 
 // import deleteTechno from "./delete-techno.js";
-import { Service } from "./service.js";
-import technosList from "./technos-list.js";
+import { Service } from "./Service.js";
+// import technosList from "./technos-list.js";
 
 let parameterValue
 let result
