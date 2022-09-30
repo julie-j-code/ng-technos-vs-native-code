@@ -1,5 +1,5 @@
 import technosList from "./technos-list.js";
-import technoAdd from "./techno-add.js";
+import technoAdd from "./add-techno.js";
 import technoDetails from "./techno-details.js";
 
 
@@ -29,6 +29,8 @@ const handleLocation = async () => {
     if (route=="/pages/techno-details.html") {
         alert("techno details")
         technoDetails.renderDetails() 
+        // pour le buton de suppression
+        document.querySelector("#techButton").addEventListener("click", ()=>technoDetails.removeTechno())
     }
 
     if(route=="/pages/technos-list.html"){
