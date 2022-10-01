@@ -1,14 +1,33 @@
 import { Service } from "./Service.js";
+// import technoDetails from "./techno-details.js";
 // import Techno from "./Techno.js";
 
-let sr=new Service()
-let technos = sr.getTechnos()
+let parameterValue
+let result
+let sr = new Service()
+const technos = sr.getTechnos()
+// pas normal, faut se faire délivrer result directement depuis technoDetails
+// const result = technoDetails.result
 
-function updateTechno(result){   
-   alert("En cours..."); 
-//    technos = [...technos, ...techToUpdate]
-//    sr.save(technos)
-//    form.reset()
+
+
+const renderInputs = () => {
+   parameterValue = new URL(location.href).searchParams.get("id")
+   result = sr.technos.filter(
+      (tech) => tech.id == parameterValue)
+   // alert(result[0].id)
+   document.querySelector("#technoname").value = result[0].technoname
+   document.querySelector("#details").value = result[0].details
+}
+
+const updateTechno = () => {
+
+
+
+   alert("En cours...");
+   //    technos = [...technos, ...techToUpdate]
+   //    sr.save(technos)
+   //    form.reset()
 }
 
 
@@ -21,6 +40,6 @@ const confirmation = (techno) => {
    document.getElementById("add-techno").appendChild(message)
 }
 
-const technoUp = { updateTechno, confirmation }
+const technoUp = { renderInputs, updateTechno, confirmation }
 
 export default technoUp

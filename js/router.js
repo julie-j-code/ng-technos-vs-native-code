@@ -16,8 +16,8 @@ const routes = {
     "/": "/pages/index.html",
     "/technos-list": "/pages/technos-list.html",
     "/add-techno": "/pages/add-techno.html",
+    "/techno-details": "/pages/techno-details.html",
     "/update-techno": "/pages/update-techno.html",
-    "/techno-details": "/pages/techno-details.html"
 };
 
 const handleLocation = async () => {
@@ -42,7 +42,9 @@ const handleLocation = async () => {
     }
 
     if (route=="/pages/update-techno.html") {
-        document.querySelector("#submit").addEventListener("click", ()=>technoUp.updateTechno())        
+        technoUp.renderInputs()
+
+        document.querySelector("#submit").addEventListener("click", ()=>technoUp.updateTechno())      
     }
 
 
