@@ -4,11 +4,9 @@ import { Service } from "./Service.js";
 
 let parameterValue
 let result
+
 let sr = new Service()
 const technos = sr.getTechnos()
-// pas normal, faut se faire délivrer result directement depuis technoDetails
-// const result = technoDetails.result
-
 
 
 const renderInputs = () => {
@@ -21,13 +19,15 @@ const renderInputs = () => {
 }
 
 const updateTechno = () => {
+   result[0].technoname = technoname.value
+   result[0].details = details.value
+   console.log(result[0])
 
+   // alert(result[0]);
 
-
-   alert("En cours...");
-   //    technos = [...technos, ...techToUpdate]
-   //    sr.save(technos)
-   //    form.reset()
+      sr.save(technos)
+      form.reset()
+      confirmation(result[0])
 }
 
 
@@ -37,7 +37,7 @@ const confirmation = (techno) => {
    message.textContent = "Retour à la liste"
    message.setAttribute("href", "/technos-list");
    message.setAttribute("onclick", "route()")
-   document.getElementById("add-techno").appendChild(message)
+   document.getElementById("update-techno").appendChild(message)
 }
 
 const technoUp = { renderInputs, updateTechno, confirmation }
