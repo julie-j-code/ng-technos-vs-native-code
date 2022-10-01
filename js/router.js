@@ -1,6 +1,8 @@
 import technosList from "./technos-list.js";
 import technoAdd from "./add-techno.js";
 import technoDetails from "./techno-details.js";
+import technoUp from "./update-techno.js";
+
 
 const route = (event) => {
     event = event || window.event;
@@ -14,6 +16,7 @@ const routes = {
     "/": "/pages/index.html",
     "/technos-list": "/pages/technos-list.html",
     "/add-techno": "/pages/add-techno.html",
+    "/update-techno": "/pages/update-techno.html",
     "/techno-details": "/pages/techno-details.html"
 };
 
@@ -37,6 +40,12 @@ const handleLocation = async () => {
     if (route=="/pages/add-techno.html") {
         document.querySelector("#submit").addEventListener("click", ()=>technoAdd.addTechno())        
     }
+
+    if (route=="/pages/update-techno.html") {
+        document.querySelector("#submit").addEventListener("click", ()=>technoUp.updateTechno())        
+    }
+
+
 };
 
 window.onpopstate = handleLocation;

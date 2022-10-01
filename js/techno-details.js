@@ -5,12 +5,12 @@ import { Service } from "./Service.js";
 
 let parameterValue
 let result
-let sr=new Service()
+let sr = new Service()
 
 const renderDetails = () => {
     // on décode le paramètre passé dans l'url
     parameterValue = new URL(location.href).searchParams.get("id")
-    result = technosList.technos.filter(
+    result = sr.technos.filter(
         (tech) => tech.id == parameterValue)
     const techContainer = document.createElement("div")
     techContainer.classList.add("container")
@@ -29,16 +29,36 @@ const renderDetails = () => {
     document.getElementById("techno-details").appendChild(techContainer
     )
     // pour l'ajout d'un lien de suppression
-    const techButton = document.createElement("button")
-    techButton.textContent = "supprimer"
-    techButton.setAttribute("id", "techButton")
-    techContainer.appendChild(techButton)
-            // pour le buton de suppression
-            document.querySelector("#techButton").addEventListener("click", ()=>sr.removeTechno(result))
+    const removeButton = document.createElement("button")
+    removeButton.textContent = "supprimer"
+    removeButton.setAttribute("id", "removeButton")
+    removeButton.classList.add("btn")
+    removeButton.classList.add("btn-warning")
+    techContainer.appendChild(removeButton)
+    // pour le buton de suppression
+    document.querySelector("#removeButton").addEventListener("click", () => sr.removeTechno(result))
+
+    // pour accéder à la page de modification
+    const updateButton = document.createElement("button")
+    // updateButton.textContent = "modifier"
+    updateButton.setAttribute("id", "updateButton")
+    updateButton.classList.add("btn")
+    updateButton.classList.add("btn-warning")
+    updateButton.classList.add("ms-2")
+    techContainer.appendChild(updateButton)
+    // pour le buton de suppression
+    const updateLink = document.createElement("a")
+    updateLink.textContent = "modifier"
+    updateLink.setAttribute("href", "/update-techno")
+    updateLink.href += `?id=${result[0].id}`
+    updateLink.setAttribute("onclick", "route()")
+    updateButton.appendChild(updateLink)
+    techContainer.appendChild(updateButton)
 }
 
 
-const technoDetails = { renderDetails, result
- }
+const technoDetails = {
+    renderDetails, result
+}
 
 export default technoDetails
