@@ -30,7 +30,11 @@ function listTechnos() {
       cardContainer.appendChild(techLink)
       document.getElementById("technos-list").appendChild(techContainer
       )
+
+      
    }
+
+
 }
 
 const technosList = {listTechnos }

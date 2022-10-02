@@ -58,6 +58,8 @@ const renderDetails = () => {
     updateLink.setAttribute("onclick", "route()")
     updateButton.appendChild(updateLink)
     techContainer.appendChild(updateButton)
+
+    sr.tagTechno(result)
 }
 
 

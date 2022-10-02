@@ -22,6 +22,7 @@ const renderInputs = () => {
 const updateTechno = () => {
    result[0].technoname = technoname.value
    result[0].details = details.value
+   result[0].category = category.value
    console.log(result[0])
       sr.save(sr.technos)
       form.reset()

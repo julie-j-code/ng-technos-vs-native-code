@@ -17,34 +17,38 @@ const routes = {
     "/technos-list": "/pages/technos-list.html",
     "/add-techno": "/pages/add-techno.html",
     "/techno-details": "/pages/techno-details.html",
-    "/update-techno": "/pages/update-techno.html",
+    "/update-techno": "/pages/update-techno.html"
 };
+
+
+
 
 const handleLocation = async () => {
     const path = window.location.pathname;
     const route = routes[path] || routes[404];
-    const html = await fetch(route).then((response) => response.text());
+    const html = await fetch(route).then(
+        (response) => response.text()
+    );
     document.getElementById("main-page").innerHTML = html;
 
-    // console.log(route) bingo !!!!! qui fait qu'on peut faire joujou façon contrôleur
 
-    if (route=="/pages/techno-details.html") {
+    if (route == "/pages/techno-details.html") {
         alert("techno details")
-        technoDetails.renderDetails() 
+        technoDetails.renderDetails()
     }
 
-    if(route=="/pages/technos-list.html"){
-        technosList.listTechnos(technosList.technos)  
+    if (route == "/pages/technos-list.html") {
+        technosList.listTechnos(technosList.technos)
     }
 
-    if (route=="/pages/add-techno.html") {
-        document.querySelector("#submit").addEventListener("click", ()=>technoAdd.addTechno())        
+    if (route == "/pages/add-techno.html") {
+        document.querySelector("#submit").addEventListener("click", () => technoAdd.addTechno())
     }
 
-    if (route=="/pages/update-techno.html") {
+    if (route == "/pages/update-techno.html") {
         technoUp.renderInputs()
 
-        document.querySelector("#submit").addEventListener("click", ()=>technoUp.updateTechno())      
+        document.querySelector("#submit").addEventListener("click", () => technoUp.updateTechno())
     }
 
 
@@ -54,3 +58,4 @@ window.onpopstate = handleLocation;
 window.route = route;
 
 handleLocation();
+
