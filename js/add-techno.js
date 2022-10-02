@@ -2,13 +2,14 @@ import { Service } from "./Service.js";
 import Techno from "./Techno.js";
 
 let sr=new Service()
-let technos = sr.getTechnos()
+// pas besoin, c'est dans le constructeur de Service
+// let technos = sr.getTechnos()
 
 const addTechno = () => {
    let techno = new Techno(technoname.value, details.value, category.value)
    // console.log("envoyé");
-   technos = [...technos, techno]
-   sr.save(technos)
+   sr.technos = [...sr.technos, techno]
+   sr.save(sr.technos)
    form.reset();
    // ne redirige plus vers la liste automatiquement mais affiche un lien 
    confirmation(techno);

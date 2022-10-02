@@ -3,9 +3,13 @@
 import { Service } from "./Service.js";
 // import technosList from "./technos-list.js";
 
+
+
 let parameterValue
 let result
 let sr = new Service()
+// pas besoin c'est dans le constructuer de Service
+// const technos = sr.getTechnos()
 
 const renderDetails = () => {
     // on décode le paramètre passé dans l'url

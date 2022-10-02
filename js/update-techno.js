@@ -6,7 +6,8 @@ let parameterValue
 let result
 
 let sr = new Service()
-const technos = sr.getTechnos()
+// pas besoin, c'est dans le constructeur de Service
+// const technos = sr.getTechnos()
 
 
 const renderInputs = () => {
@@ -22,10 +23,7 @@ const updateTechno = () => {
    result[0].technoname = technoname.value
    result[0].details = details.value
    console.log(result[0])
-
-   // alert(result[0]);
-
-      sr.save(technos)
+      sr.save(sr.technos)
       form.reset()
       confirmation(result[0])
 }
@@ -34,8 +32,9 @@ const updateTechno = () => {
 const confirmation = (techno) => {
    alert(`La techno ${techno.technoname} a bien été modifiée`)
    const message = document.createElement("a")
-   message.textContent = "Retour à la liste"
-   message.setAttribute("href", "/technos-list");
+   message.textContent = "Retour à la techno"
+   message.setAttribute("href", "/techno-details")
+   message.href+=`?id=${parameterValue}`
    message.setAttribute("onclick", "route()")
    document.getElementById("update-techno").appendChild(message)
 }
