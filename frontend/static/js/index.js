@@ -4,6 +4,8 @@ import technoDetails from "./techno-details.js";
 import technoUp from "./update-techno.js";
 
 
+
+
 const route = (event) => {
     event = event || window.event;
     event.preventDefault();
@@ -12,16 +14,16 @@ const route = (event) => {
 };
 
 const routes = {
-    404: "/pages/404.html",
-    "/": "/pages/index.html",
-    "/technos-list": "/pages/technos-list.html",
-    "/add-techno": "/pages/add-techno.html",
-    "/techno-details": "/pages/techno-details.html",
-    "/update-techno": "/pages/update-techno.html"
+    404: "/static/pages/404.html",
+    "/": "/static/pages/index.html",
+    "/technos-list": "/static/pages/technos-list.html",
+    "/add-techno": "/static/pages/add-techno.html",
+    "/techno-details": "/static/pages/techno-details.html",
+    "/update-techno": "/static/pages/update-techno.html"
 };
 
 
-
+console.log(route)
 
 const handleLocation = async () => {
     const path = window.location.pathname;
@@ -31,21 +33,25 @@ const handleLocation = async () => {
     );
     document.getElementById("main-page").innerHTML = html;
 
+    console.log(route)
 
-    if (route == "/pages/techno-details.html") {
+
+    if (route == "/static/pages/techno-details.html") {
         alert("techno details")
         technoDetails.renderDetails()
+// console.log(location.href)
     }
 
-    if (route == "/pages/technos-list.html") {
+    if (route == "/static/pages/technos-list.html") {
         technosList.listTechnos(technosList.technos)
     }
 
-    if (route == "/pages/add-techno.html") {
+    if (route == "/static/pages/add-techno.html") {
+        console.log(window.document.querySelector("#submit"));
         document.querySelector("#submit").addEventListener("click", () => technoAdd.addTechno())
     }
 
-    if (route == "/pages/update-techno.html") {
+    if (route == "/static/pages/update-techno.html") {
         technoUp.renderInputs()
 
         document.querySelector("#submit").addEventListener("click", () => technoUp.updateTechno())

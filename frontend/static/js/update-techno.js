@@ -27,6 +27,7 @@ const updateTechno = () => {
       sr.save(sr.technos)
       form.reset()
       confirmation(result[0])
+
 }
 
 
@@ -39,6 +40,8 @@ const confirmation = (techno) => {
    message.setAttribute("onclick", "route()")
    document.getElementById("update-techno").appendChild(message)
 }
+
+
 
 const technoUp = { renderInputs, updateTechno, confirmation }
 
