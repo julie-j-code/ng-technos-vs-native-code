@@ -19,7 +19,8 @@ const routes = {
     "/technos-list": "/static/pages/technos-list.html",
     "/add-techno": "/static/pages/add-techno.html",
     "/techno-details": "/static/pages/techno-details.html",
-    "/update-techno": "/static/pages/update-techno.html"
+    "/update-techno": "/static/pages/update-techno.html",
+    "/manifest":"/static/manifest.json"
 };
 
 

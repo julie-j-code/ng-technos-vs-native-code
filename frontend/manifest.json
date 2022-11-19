@@ -1,0 +1,21 @@
+{
+  "short_name": "TECHNOS WAP ",
+  "theme_color": "#eb5252",
+  "background_color": "#000000",
+  "display": "fullscreen",
+  "Scope": "/",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/static/icons/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/static/icons/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/"
+}
